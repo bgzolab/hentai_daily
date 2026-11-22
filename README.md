@@ -1,10 +1,3 @@
-[![Contributors](https://img.shields.io/github/contributors/bgzolab/hentai-daily.svg?style=for-the-badge)](https://github.com/bgzolab/hentai-daily/graphs/contributors)
-[![Forks](https://img.shields.io/github/forks/bgzolab/hentai-daily.svg?style=for-the-badge)](https://github.com/bgzolab/hentai-daily/network/members)
-[![Stargazers](https://img.shields.io/github/stars/bgzolab/hentai-daily.svg?style=for-the-badge)](https://github.com/bgzolab/hentai-daily/stargazers)
-[![Issues](https://img.shields.io/github/issues/bgzolab/hentai-daily.svg?style=for-the-badge)](https://github.com/bgzolab/hentai-daily/issues)
-[![Licence](https://img.shields.io/github/license/bgzolab/hentai-daily.svg?style=for-the-badge)](https://github.com/bgzolab/hentai-daily/blob/vitepress/LICENCE)
-[![Telegram](https://img.shields.io/badge/-telegram-black.svg?style=for-the-badge&logo=telegram&colorB=555)](https://t.me/imbgzo)
-
 > [!WARNING]
 > This project may contain violence, pornography, sexual descriptions, or other content intended for readers aged 18 and over only.
 >
