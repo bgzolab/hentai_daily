@@ -20,6 +20,10 @@ if [ ! -d "$WORK/.git" ]; then
   git clone --depth 1 --branch "$BRANCH" "$(git -C "$REPO" remote get-url origin)" "$WORK"
 fi
 cd "$WORK"
+# An interrupted rebase leaves state behind that blocks every later pull.
+if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+  git rebase --abort 2>/dev/null || rm -rf .git/rebase-merge .git/rebase-apply
+fi
 git fetch --depth 1 origin "$BRANCH"
 git reset --hard FETCH_HEAD
 
@@ -55,7 +59,13 @@ else
   git -c user.name="local-cron[bot]" \
       -c user.email="github-actions[bot]@users.noreply.github.com" \
       commit -m "chore(ci): sync feed by local cron"
-  git pull --rebase origin "$BRANCH"
+  if ! git pull --rebase origin "$BRANCH"; then
+    # Usually both runners scraped the same window; drop this commit and retry
+    # next tick instead of leaving rebase state that wedges every later run.
+    git rebase --abort 2>/dev/null || true
+    echo "pull failed, retry on next tick" >&2
+    exit 1
+  fi
   git push origin "HEAD:$BRANCH"
 fi
 
